@@ -1,0 +1,2561 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "undefined" ],
+    "baseIris" : [ "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "https://example.org/mdr-ontology" ],
+    "title" : {
+      "undefined" : "Medical Device Incident Ontology"
+    },
+    "iri" : "https://example.org/mdr-ontology#",
+    "author" : [ "Joan Solà" ],
+    "description" : {
+      "undefined" : "Ontology developed as an exercise for a course at the Universitat Oberta de Catalunya (UOC). It models medical devices, incidents, risks, and corrective actions under MDR/IVDR regulations."
+    },
+    "other" : {
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/publicdomain/zero/1.0/",
+        "type" : "label"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "Joan Solà",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "April 2026",
+        "type" : "label"
+      } ],
+      "subject" : [ {
+        "identifier" : "subject",
+        "language" : "undefined",
+        "value" : "Representació del coneixement PAC2 - Spring 2026 - UOC",
+        "type" : "label"
+      } ],
+      "abstract" : [ {
+        "identifier" : "abstract",
+        "language" : "undefined",
+        "value" : "This ontology models medical devices, incidents, risks, and corrective actions under European MDR/IVDR regulations. It captures the relationships between devices, manufacturers, risk classifications, and incident management processes, supporting semantic interoperability and structured data representation. The ontology was developed as part of the PAC2 assignment for the knowledge representation course at the UOC.",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "undefined",
+        "value" : "Medical Device Incident Ontology",
+        "type" : "label"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "Linked Open Vocabularies (LOV). https://lov.linkeddata.es/",
+        "type" : "label"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "European Union. Regulation (EU) 2017/745 on medical devices (MDR). https://en.wikipedia.org/wiki/Regulation_(EU)_2017/745",
+        "type" : "label"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "DBpedia. https://dbpedia.org/",
+        "type" : "label"
+      }, {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "European Union. Regulation (EU) 2017/746 on in vitro diagnostic medical devices (IVDR). https://en.wikipedia.org/wiki/Regulation_(EU)_2017/746",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "17",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "18",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "19",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "24",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "26",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "12",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "40",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "41",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "44",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "45",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "54",
+    "type" : "owl:Class"
+  }, {
+    "id" : "56",
+    "type" : "owl:Class"
+  }, {
+    "id" : "72",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "74",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "63",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "32",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "10",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "93",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "86",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "94",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "78",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "96",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "52",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "110",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "82",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "8",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "114",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "113",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "116",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "80",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "57",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "0",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://example.org/mdr-ontology#Risk",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Risk",
+      "undefined" : "Risk"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#RSK_020",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_020"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_011",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_011"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_010",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_010"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_009",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_009"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_006",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_006"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_017",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_017"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_016",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_016"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_005",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_005"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_019",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_019"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_008",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_008"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_018",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_018"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_007",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_007"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_013",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_013"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_002",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_002"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_012",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_012"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_001",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_001"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_004",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_004"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_015",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_015"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_014",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_014"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#RSK_003",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "RSK_003"
+      }
+    } ],
+    "subClasses" : [ "2", "3", "4", "5" ],
+    "comment" : {
+      "undefined" : "A potential source of harm associated with the use or malfunction of a medical device."
+    },
+    "id" : "1"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "15",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "16",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "17",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "18",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "19",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "22",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "23",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "24",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "25",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "26",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "https://example.org/mdr-ontology#Incident",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Incident",
+      "undefined" : "Incident"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#INC_009",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_009"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_016",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_016"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_005",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_005"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_017",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_017"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_006",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_006"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_007",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_007"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_018",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_018"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_008",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_008"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_019",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_019"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_001",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_001"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_012",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_012"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_013",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_013"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_002",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_002"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_014",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_014"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_003",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_003"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_015",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_015"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_004",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_004"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_020",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_020"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_010",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_010"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#INC_011",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "INC_011"
+      }
+    } ],
+    "subClasses" : [ "34" ],
+    "comment" : {
+      "undefined" : "An event involving a medical device that may lead to or has led to harm, malfunction or safety issues."
+    },
+    "id" : "33"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#RiskClass",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RiskClass",
+      "undefined" : "Risk Class"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#classC",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "classC",
+        "undefined" : "Class C"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#classIII",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "classIII",
+        "undefined" : "Class III"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#classIIa",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "classIIa",
+        "undefined" : "Class IIa"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#classIIb",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "classIIb",
+        "undefined" : "Class IIb"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#classD",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "classD",
+        "undefined" : "Class D"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A classification indicating the level of regulatory risk associated with a device, typically based on safety and intended use."
+    },
+    "id" : "35",
+    "superClasses" : [ "31" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "36",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "12",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "39",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "40",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "41",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "42",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "43",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "44",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "45",
+    "label" : {
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "46",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://example.org/mdr-ontology#CorrectiveActionStatus",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CorrectiveActionStatus",
+      "undefined" : "Status"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#Closed",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "Closed",
+        "undefined" : "Closed"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#Open",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "Open",
+        "undefined" : "Open"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "The current state of a corrective action, indicating whether it is open, ongoing, or closed."
+    },
+    "id" : "54",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "https://example.org/mdr-ontology#Manufacturer",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Manufacturer",
+      "undefined" : "Manufacturer"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#MAN_013",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_013"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_002",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "https://www.abbott.com",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "MAN_002"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_012",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_012"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_001",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "https://www.medtronic.com",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "MAN_001"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_015",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_015"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_004",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_004"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_014",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_014"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_003",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_003"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_006",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_006"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_005",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_005"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_008",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_008"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_007",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_007"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_009",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_009"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_011",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_011"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MAN_010",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MAN_010"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "An organization responsible for designing, manufacturing or placing a medical device on the market."
+    },
+    "id" : "56"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "72",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "74",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "63",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "32",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://example.org/mdr-ontology#Device",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Device",
+      "undefined" : "Device"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#DEV_018",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_018"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_017",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_017"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_019",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_019"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_014",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_014"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_013",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_013"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_016",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_016"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_015",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_015"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_010",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_010"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_012",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_012"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_011",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_011"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_007",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_007"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_006",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_006"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_009",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_009"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_008",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_008"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_003",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "https://www.structuralheart.abbott/fileadmin/content/For_Patients/Patient_Guides/Portico_TAVI_Patient_Brochure.pdf",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "DEV_003"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_025",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_025"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_024",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_024"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_002",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "https://pubmed.ncbi.nlm.nih.gov/38059460/",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "DEV_002"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_005",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_005"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_004",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_004"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_021",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_021"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_020",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_020"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_023",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_023"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_001",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "annotations" : {
+        "seeAlso" : [ {
+          "identifier" : "seeAlso",
+          "language" : "undefined",
+          "value" : "https://stanfordhealthcare.org/medical-treatments/l/lvad.html",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "DEV_001"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#DEV_022",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "DEV_022"
+      }
+    } ],
+    "subClasses" : [ "35", "48", "52" ],
+    "comment" : {
+      "undefined" : "A medical device regulated under MDR or IVDR, including implantable, active or diagnostic devices."
+    },
+    "id" : "31"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#DeviceType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DeviceType",
+      "undefined" : "Device Type"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#isReusable",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "isReusable",
+        "undefined" : "Reusable"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#isImplantable",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "isImplantable",
+        "undefined" : "Implantable"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#isIvd",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "isIvd",
+        "undefined" : "InVitro Diagnostic"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#isActive",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "isActive",
+        "undefined" : "Active"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A classification that describes the functional or structural characteristics of a medical device, such as implantable or active."
+    },
+    "id" : "48",
+    "superClasses" : [ "31" ]
+  }, {
+    "iri" : "https://example.org/mdr-ontology#RiskCategory",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RiskCategory",
+      "undefined" : "Category"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#deviceSafety",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "deviceSafety",
+        "undefined" : "Device Safety"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#devicePerformance",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "devicePerformance",
+        "undefined" : "Device Performance"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#productQuality",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "productQuality",
+        "undefined" : "Product Quality"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#patientHarm",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "patientHarm",
+        "undefined" : "Patient Harm"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#deviceFailure",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "deviceFailure",
+        "undefined" : "Device Failure"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#diagnosticError",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "diagnosticError",
+        "undefined" : "Diagnostic Error"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A high-level classification of risks based on their origin, such as device-related or patient-related risks."
+    },
+    "id" : "3",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "90",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "10",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "38",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "93",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "86",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "94",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "78",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "21",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "96",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://example.org/mdr-ontology#RegulatoryFramework",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RegulatoryFramework",
+      "undefined" : "Regulatory Framework"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#IVDR",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "IVDR",
+        "undefined" : "IVDR"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#MDR",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "MDR",
+        "undefined" : "MDR"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A regulatory classification that determines the legal framework applicable to a medical device, such as MDR or IVDR."
+    },
+    "id" : "52",
+    "superClasses" : [ "31" ]
+  }, {
+    "iri" : "https://example.org/mdr-ontology#SeverityLevel",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SeverityLevel",
+      "undefined" : "Severity Level"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#severitySerious",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "severitySerious",
+        "undefined" : "Severity Serious"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#severityCritical",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "severityCritical",
+        "undefined" : "Severity Critical"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#severityVeryLow",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "severityVeryLow",
+        "undefined" : "Severity Very Low"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#severityModerate",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "severityModerate",
+        "undefined" : "Severity Moderate"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#severityLow",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "severityLow",
+        "undefined" : "Severity Low"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A classification indicating the potential impact or seriousness of a risk, such as minor, serious, or critical."
+    },
+    "id" : "5",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://example.org/mdr-ontology#ActionType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ActionType",
+      "undefined" : "Action Type"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#safetyAlert",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "safetyAlert",
+        "undefined" : "Safety Alert"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#recall",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "recall",
+        "undefined" : "Recall"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#userNotice",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "userNotice",
+        "undefined" : "User Notice"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#inSituCorrection",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "inSituCorrection",
+        "undefined" : "In-Situ Correction"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A classification of corrective actions according to their nature or purpose, such as recall, safety alert, or in-situ correction."
+    },
+    "id" : "50",
+    "superClasses" : [ "7" ]
+  }, {
+    "iri" : "https://example.org/mdr-ontology#ProbabilityLevel",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ProbabilityLevel",
+      "undefined" : "Probability Level"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#high",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "high",
+        "undefined" : "Probability High"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#medium",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "medium",
+        "undefined" : "Probability Medium"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#low",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "low",
+        "undefined" : "Probability Low"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A classification indicating the likelihood of occurrence of a risk, typically expressed as low, medium, or high."
+    },
+    "id" : "4",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "14",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "110",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "82",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "8",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "114",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "113",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "116",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "80",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "29",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "57",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://example.org/mdr-ontology#riskType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "riskType",
+      "undefined" : "Type"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#infectionRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "infectionRisk",
+        "undefined" : "Infection Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#interferenceRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "interferenceRisk",
+        "undefined" : "Interference Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#radiationRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "radiationRisk",
+        "undefined" : "Radiation Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#diagnosticRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "diagnosticRisk",
+        "undefined" : "Diagnostic Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#malfunctionRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "malfunctionRisk",
+        "undefined" : "Malfuction Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#softwareRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "softwareRisk",
+        "undefined" : "Software Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#contaminationRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "contaminationRisk",
+        "undefined" : "Contamination Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#cyberSecurityRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "cyberSecurityRisk",
+        "undefined" : "Cybersecurity Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#injuryRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "injuryRisk",
+        "undefined" : "Injury Risk"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#materialRisk",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "materialRisk",
+        "undefined" : "Material Risk"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A more specific classification of risks within a category, describing the nature of the hazard, such as infection or mechanical failure."
+    },
+    "id" : "2",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://example.org/mdr-ontology#IncidentType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "IncidentType",
+      "undefined" : "Incident Type"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#serious",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "serious",
+        "undefined" : "Serious Incident"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#nearMiss",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "nearMiss",
+        "undefined" : "Near Miss Incident"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "A categorization of incidents based on their severity or nature, such as serious incident or near-miss."
+    },
+    "id" : "34",
+    "superClasses" : [ "33" ]
+  }, {
+    "iri" : "https://example.org/mdr-ontology#CorrectiveAction",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CorrectiveAction",
+      "undefined" : "Corrective Action"
+    },
+    "individuals" : [ {
+      "iri" : "https://example.org/mdr-ontology#FSCA_010",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_010"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_009",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_009"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_008",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_008"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_014",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_014"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_003",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_003"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_013",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_013"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_002",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_002"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_012",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_012"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_001",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_001"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_011",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_011"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_007",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_007"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_006",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_006"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_005",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_005"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_004",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_004"
+      }
+    }, {
+      "iri" : "https://example.org/mdr-ontology#FSCA_015",
+      "baseIri" : "https://example.org/mdr-ontology",
+      "labels" : {
+        "IRI-based" : "FSCA_015"
+      }
+    } ],
+    "subClasses" : [ "50", "54" ],
+    "comment" : {
+      "undefined" : "An action taken to eliminate or reduce the risk associated with a medical device incident."
+    },
+    "id" : "7"
+  } ],
+  "property" : [ {
+    "id" : "6",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "9",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "11",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "13",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "20",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "27",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "28",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "30",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "37",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "49",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "55",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "58",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "59",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "61",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "62",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "64",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "65",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "66",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "67",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "68",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "69",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "70",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "71",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "73",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "75",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "77",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "81",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "83",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "84",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "85",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "87",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "88",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "89",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "91",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "92",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "95",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "97",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "98",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "99",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "100",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "101",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "102",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "103",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "104",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "105",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "106",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "107",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "108",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "109",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "111",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "112",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "115",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "117",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "118",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "119",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "120",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "121",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "122",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "123",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "124",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "125",
+    "type" : "owl:datatypeProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://example.org/mdr-ontology#correctiveActionDescription",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "8",
+    "label" : {
+      "IRI-based" : "correctiveActionDescription",
+      "undefined" : "Corrective Action Description"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "6"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#scope",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "scope",
+      "undefined" : "Scope"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "9"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#fscaId",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "fscaId",
+      "undefined" : "FSCA ID"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "11"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#closureDate",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "closureDate",
+      "undefined" : "Closure Date"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#riskId",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "riskId",
+      "undefined" : "Risk ID"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "20"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#hasRiskProbability",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "4",
+    "label" : {
+      "IRI-based" : "hasRiskProbability",
+      "undefined" : "has risk probability"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "27"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#actionDate",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "actionDate",
+      "undefined" : "Action Date"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "28"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#hasRegulatoryFramework",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "hasRegulatoryFramework",
+      "undefined" : "has regulatory framework"
+    },
+    "domain" : "31",
+    "attributes" : [ "object" ],
+    "id" : "30"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#riskName",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "38",
+    "label" : {
+      "IRI-based" : "riskName",
+      "undefined" : "Risk Name"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "37"
+  }, {
+    "range" : "31",
+    "domain" : "48",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "47"
+  }, {
+    "range" : "7",
+    "domain" : "50",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "49"
+  }, {
+    "range" : "31",
+    "domain" : "52",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "51"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#representsIncidentType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "33",
+    "label" : {
+      "IRI-based" : "representsIncidentType",
+      "undefined" : "represents incident type"
+    },
+    "domain" : "34",
+    "attributes" : [ "object" ],
+    "id" : "53"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#authorizationNumber",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "57",
+    "label" : {
+      "IRI-based" : "authorizationNumber",
+      "undefined" : "Manufacturer Authorization Number"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype" ],
+    "id" : "55"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#eventDate",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "42",
+    "label" : {
+      "IRI-based" : "eventDate",
+      "undefined" : "Incident Event Date"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "58"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#hasManufacturer",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "32",
+    "label" : {
+      "IRI-based" : "hasManufacturer",
+      "undefined" : "has manufacturer"
+    },
+    "domain" : "31",
+    "attributes" : [ "object" ],
+    "id" : "59"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#incidentId",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "24",
+    "label" : {
+      "IRI-based" : "incidentId",
+      "undefined" : "Incident ID"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "60"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#affectsDeviceType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "48",
+    "label" : {
+      "IRI-based" : "affectsDeviceType",
+      "undefined" : "affects device type"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "61"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#hasRisk",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "63",
+    "label" : {
+      "IRI-based" : "hasRisk",
+      "undefined" : "has risk"
+    },
+    "domain" : "33",
+    "attributes" : [ "object" ],
+    "id" : "62"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#representsActionType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "50",
+    "label" : {
+      "IRI-based" : "representsActionType",
+      "undefined" : "represents action type"
+    },
+    "domain" : "7",
+    "attributes" : [ "object" ],
+    "id" : "64"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#probabilityValue",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "15",
+    "label" : {
+      "IRI-based" : "probabilityValue",
+      "undefined" : "Probability Value"
+    },
+    "domain" : "4",
+    "attributes" : [ "datatype" ],
+    "id" : "65"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#patientSex",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "patientSex",
+      "undefined" : "Patient Sex"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "66"
+  }, {
+    "range" : "1",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "67"
+  }, {
+    "range" : "1",
+    "domain" : "4",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "68"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#probability",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "16",
+    "label" : {
+      "IRI-based" : "probability",
+      "undefined" : "Risk Probability"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "69"
+  }, {
+    "range" : "31",
+    "domain" : "35",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "70"
+  }, {
+    "range" : "33",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "71"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#hasSeverityLevel",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "hasSeverityLevel",
+      "undefined" : "has severity level"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "73"
+  }, {
+    "range" : "1",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "75"
+  }, {
+    "range" : "1",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "76"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#reportDate",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "78",
+    "label" : {
+      "IRI-based" : "reportDate",
+      "undefined" : "Incident Reporting Date"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "77"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#detectionDate",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "80",
+    "label" : {
+      "IRI-based" : "detectionDate",
+      "undefined" : "Incident Detection Date"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "79"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#contactEmail",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "82",
+    "label" : {
+      "IRI-based" : "contactEmail",
+      "undefined" : "Manufacturer email"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "81"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#involvesDevice",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "involvesDevice",
+      "undefined" : "involves device"
+    },
+    "domain" : "33",
+    "attributes" : [ "object" ],
+    "id" : "83"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#deviceType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "72",
+    "label" : {
+      "IRI-based" : "deviceType",
+      "undefined" : "Device Type"
+    },
+    "domain" : "74",
+    "attributes" : [ "datatype" ],
+    "id" : "84"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#severity",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "86",
+    "label" : {
+      "IRI-based" : "severity",
+      "undefined" : "Risk Severity"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "85"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#levelValue",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "26",
+    "label" : {
+      "IRI-based" : "levelValue",
+      "undefined" : "Level Value"
+    },
+    "domain" : "5",
+    "attributes" : [ "datatype" ],
+    "id" : "87"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#imdrfCode",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "36",
+    "label" : {
+      "IRI-based" : "imdrfCode",
+      "undefined" : "Risk IMDRF Code"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "88"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#eudamedSRN",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "43",
+    "label" : {
+      "IRI-based" : "eudamedSRN",
+      "undefined" : "EUDAMED SRN"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "89"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#intendedPurpose",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "23",
+    "label" : {
+      "IRI-based" : "intendedPurpose",
+      "undefined" : "Intended Purpose"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "91"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#deviceId",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "44",
+    "label" : {
+      "IRI-based" : "deviceId",
+      "undefined" : "Device ID"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "92"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#representsRiskType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "representsRiskType",
+      "undefined" : "represents risk type"
+    },
+    "domain" : "2",
+    "attributes" : [ "object" ],
+    "id" : "95"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#reportedCountry",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "94",
+    "label" : {
+      "IRI-based" : "reportedCountry",
+      "undefined" : "Incident Reported Country"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "97"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#regulatoryFramework",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "0",
+    "label" : {
+      "IRI-based" : "regulatoryFramework",
+      "undefined" : "Regulatory Framework"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "98"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#riskDescription",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "96",
+    "label" : {
+      "IRI-based" : "riskDescription",
+      "undefined" : "Risk Description"
+    },
+    "domain" : "1",
+    "attributes" : [ "datatype" ],
+    "id" : "99"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#udiDi",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "90",
+    "label" : {
+      "IRI-based" : "udiDi",
+      "undefined" : "UDI DI"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "100"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#outcome",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "outcome",
+      "undefined" : "Incident Outcome"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "101"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#eudamedIncidentRef",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "40",
+    "label" : {
+      "IRI-based" : "eudamedIncidentRef",
+      "undefined" : "EUDAMED Incident Reference"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "102"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#manufacturerId",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "25",
+    "label" : {
+      "IRI-based" : "manufacturerId",
+      "undefined" : "Manufacturer ID"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "103"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#representsStatus",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "representsStatus",
+      "undefined" : "represents status"
+    },
+    "domain" : "7",
+    "attributes" : [ "object" ],
+    "id" : "104"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#adddressesIncident",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "33",
+    "label" : {
+      "IRI-based" : "adddressesIncident",
+      "undefined" : "addresses incident"
+    },
+    "domain" : "7",
+    "attributes" : [ "object" ],
+    "id" : "105"
+  }, {
+    "range" : "7",
+    "domain" : "54",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "106"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#representsRiskCategory",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "representsRiskCategory",
+      "undefined" : "represents risk category"
+    },
+    "domain" : "3",
+    "attributes" : [ "object" ],
+    "id" : "107"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#representsDeviceType",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "representsDeviceType",
+      "undefined" : "represents device type"
+    },
+    "domain" : "48",
+    "attributes" : [ "object" ],
+    "id" : "108"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#incidentDescription",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "incidentDescription",
+      "undefined" : "Incident Description"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "109"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#manufacturerName",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "manufacturerName",
+      "undefined" : "Manufacturer Name"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype" ],
+    "id" : "111"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#countriesAffected",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "113",
+    "label" : {
+      "IRI-based" : "countriesAffected",
+      "undefined" : "Countries Affected"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "112"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#patientAge",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "patientAge",
+      "undefined" : "Patient Age"
+    },
+    "domain" : "33",
+    "attributes" : [ "datatype" ],
+    "id" : "115"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#devicesAffected",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "45",
+    "label" : {
+      "IRI-based" : "devicesAffected",
+      "undefined" : "No. Devices Affected"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "117"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#correctiveActionTaken",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "114",
+    "label" : {
+      "IRI-based" : "correctiveActionTaken"
+    },
+    "domain" : "74",
+    "attributes" : [ "datatype" ],
+    "id" : "118"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#deviceName",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "46",
+    "label" : {
+      "IRI-based" : "deviceName",
+      "undefined" : "Device Name"
+    },
+    "domain" : "31",
+    "attributes" : [ "datatype", "functional" ],
+    "id" : "119"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#representsRiskClass",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "31",
+    "label" : {
+      "IRI-based" : "representsRiskClass",
+      "undefined" : "represents risk class"
+    },
+    "domain" : "35",
+    "attributes" : [ "object" ],
+    "id" : "120"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#eudamedFscaRef",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "41",
+    "label" : {
+      "IRI-based" : "eudamedFscaRef",
+      "undefined" : "EUDAMED FSCA Reference"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "121"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#status",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "93",
+    "label" : {
+      "IRI-based" : "status",
+      "undefined" : "Corrective Action Status"
+    },
+    "domain" : "7",
+    "attributes" : [ "datatype" ],
+    "id" : "122"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#competentAuthority",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "110",
+    "label" : {
+      "IRI-based" : "competentAuthority",
+      "undefined" : "Competent Authority"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype" ],
+    "id" : "123"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#reportedBy",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "56",
+    "label" : {
+      "IRI-based" : "reportedBy",
+      "undefined" : "reported by"
+    },
+    "domain" : "33",
+    "attributes" : [ "object" ],
+    "id" : "124"
+  }, {
+    "iri" : "https://example.org/mdr-ontology#country",
+    "baseIri" : "https://example.org/mdr-ontology",
+    "range" : "116",
+    "label" : {
+      "IRI-based" : "country",
+      "undefined" : "Manufacturer Country"
+    },
+    "domain" : "56",
+    "attributes" : [ "datatype" ],
+    "id" : "125"
+  } ]
+}
