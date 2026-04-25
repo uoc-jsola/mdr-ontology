@@ -1,0 +1,3403 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://example.org/mdr-ontology#"
+     xml:base="https://example.org/mdr-ontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:mdr-ontology="https://example.org/mdr-ontology#">
+    <owl:Ontology rdf:about="https://example.org/mdr-ontology#">
+        <terms:abstract>This ontology models medical devices, incidents, risks, and corrective actions under European MDR/IVDR regulations. It captures the relationships between devices, manufacturers, risk classifications, and incident management processes, supporting semantic interoperability and structured data representation. The ontology was developed as part of the PAC2 assignment for the knowledge representation course at the UOC.</terms:abstract>
+        <terms:created>April 2026</terms:created>
+        <terms:creator>Joan Solà</terms:creator>
+        <terms:description>Ontology developed as an exercise for a course at the Universitat Oberta de Catalunya (UOC). It models medical devices, incidents, risks, and corrective actions under MDR/IVDR regulations.</terms:description>
+        <terms:license>https://creativecommons.org/publicdomain/zero/1.0/</terms:license>
+        <terms:subject>Representació del coneixement PAC2 - Spring 2026 - UOC</terms:subject>
+        <terms:title>Medical Device Incident Ontology</terms:title>
+        <rdfs:seeAlso>DBpedia. https://dbpedia.org/</rdfs:seeAlso>
+        <rdfs:seeAlso>European Union. Regulation (EU) 2017/745 on medical devices (MDR). https://en.wikipedia.org/wiki/Regulation_(EU)_2017/745</rdfs:seeAlso>
+        <rdfs:seeAlso>European Union. Regulation (EU) 2017/746 on in vitro diagnostic medical devices (IVDR). https://en.wikipedia.org/wiki/Regulation_(EU)_2017/746</rdfs:seeAlso>
+        <rdfs:seeAlso>Linked Open Vocabularies (LOV). https://lov.linkeddata.es/</rdfs:seeAlso>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/abstract -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/abstract"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/bibliographicCitation -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/bibliographicCitation"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/subject -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/subject"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://example.org/mdr-ontology#adddressesIncident -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#adddressesIncident">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:label>addresses incident</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#affectsDeviceType -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#affectsDeviceType">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#DeviceType"/>
+        <rdfs:label>affects device type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#hasManufacturer -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#hasManufacturer">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/mdr-ontology#hasManufacturer"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:label>has manufacturer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#hasRegulatoryFramework -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#hasRegulatoryFramework">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/mdr-ontology#hasRegulatoryFramework"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.org/mdr-ontology#RegulatoryFramework"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:label>has regulatory framework</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#hasRisk -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#hasRisk">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/mdr-ontology#hasRisk"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.org/mdr-ontology#Risk"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:label>has risk</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#hasRiskProbability -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#hasRiskProbability">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#ProbabilityLevel"/>
+        <rdfs:label>has risk probability</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#hasSeverityLevel -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#hasSeverityLevel">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#SeverityLevel"/>
+        <rdfs:label>has severity level</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#involvesDevice -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#involvesDevice">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:label>involves device</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#reportedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#reportedBy">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <rdfs:label>reported by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#representsActionType -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#representsActionType">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#ActionType"/>
+        <rdfs:label>represents action type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#representsDeviceType -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#representsDeviceType">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#DeviceType"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:label>represents device type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#representsIncidentType -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#representsIncidentType">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#IncidentType"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:label>represents incident type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#representsRiskCategory -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#representsRiskCategory">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#RiskCategory"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:label>represents risk category</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#representsRiskClass -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#representsRiskClass">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#RiskClass"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:label>represents risk class</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#representsRiskType -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#representsRiskType">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:label>represents risk type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#representsStatus -->
+
+
+    <owl:ObjectProperty rdf:about="https://example.org/mdr-ontology#representsStatus">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="https://example.org/mdr-ontology#CorrectiveActionStatus"/>
+        <rdfs:label>represents status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://example.org/mdr-ontology#actionDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#actionDate">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>Action Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#authorizationNumber -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#authorizationNumber">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Manufacturer Authorization Number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#closureDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#closureDate">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>Closure Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#competentAuthority -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#competentAuthority">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Competent Authority</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#contactEmail -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#contactEmail">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Manufacturer email</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#correctiveActionDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#correctiveActionDescription">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Corrective Action Description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#correctiveActionTaken -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#correctiveActionTaken">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#countriesAffected -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#countriesAffected">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Countries Affected</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#country -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#country">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Manufacturer Country</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#detectionDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#detectionDate">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>Incident Detection Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#deviceId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#deviceId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Device ID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#deviceName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#deviceName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Device Name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#deviceType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#deviceType">
+        <rdfs:label>Device Type</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#devicesAffected -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#devicesAffected">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>No. Devices Affected</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#eudamedFscaRef -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#eudamedFscaRef">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>EUDAMED FSCA Reference</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#eudamedIncidentRef -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#eudamedIncidentRef">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>EUDAMED Incident Reference</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#eudamedSRN -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#eudamedSRN">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>EUDAMED SRN</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#eventDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#eventDate">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>Incident Event Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#fscaId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#fscaId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>FSCA ID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#imdrfCode -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#imdrfCode">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Risk IMDRF Code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#incidentDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#incidentDescription">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Incident Description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#incidentId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#incidentId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Incident ID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#intendedPurpose -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#intendedPurpose">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Intended Purpose</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#levelValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#levelValue">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#SeverityLevel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>Level Value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#manufacturerId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#manufacturerId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Manufacturer ID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#manufacturerName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#manufacturerName">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Manufacturer Name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#outcome -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#outcome">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Incident Outcome</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#patientAge -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#patientAge">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>Patient Age</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#patientSex -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#patientSex">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Patient Sex</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#probability -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#probability">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Risk Probability</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#probabilityValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#probabilityValue">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#ProbabilityLevel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label>Probability Value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#regulatoryFramework -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#regulatoryFramework">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Regulatory Framework</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#reportDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#reportDate">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>Incident Reporting Date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#reportedCountry -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#reportedCountry">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Incident Reported Country</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#riskDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#riskDescription">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Risk Description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#riskId -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#riskId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Risk ID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#riskName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#riskName">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Risk Name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#scope -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#scope">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Scope</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#severity -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#severity">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Risk Severity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#status -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#status">
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>Corrective Action Status</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://example.org/mdr-ontology#udiDi -->
+
+
+    <owl:DatatypeProperty rdf:about="https://example.org/mdr-ontology#udiDi">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>UDI DI</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://example.org/mdr-ontology#ActionType -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#ActionType">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:comment>A classification of corrective actions according to their nature or purpose, such as recall, safety alert, or in-situ correction.</rdfs:comment>
+        <rdfs:label>Action Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#CorrectiveAction -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#CorrectiveAction">
+        <rdfs:comment>An action taken to eliminate or reduce the risk associated with a medical device incident.</rdfs:comment>
+        <rdfs:label>Corrective Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#CorrectiveActionStatus -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#CorrectiveActionStatus">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <rdfs:comment>The current state of a corrective action, indicating whether it is open, ongoing, or closed.</rdfs:comment>
+        <rdfs:label>Status</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#Device -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#Device">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://example.org/mdr-ontology#hasManufacturer"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A medical device regulated under MDR or IVDR, including implantable, active or diagnostic devices.</rdfs:comment>
+        <rdfs:label>Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DeviceType -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#DeviceType">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:comment>A classification that describes the functional or structural characteristics of a medical device, such as implantable or active.</rdfs:comment>
+        <rdfs:label>Device Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#Incident -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#Incident">
+        <rdfs:comment>An event involving a medical device that may lead to or has led to harm, malfunction or safety issues.</rdfs:comment>
+        <rdfs:label>Incident</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#IncidentType -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#IncidentType">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <rdfs:comment>A categorization of incidents based on their severity or nature, such as serious incident or near-miss.</rdfs:comment>
+        <rdfs:label>Incident Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#Manufacturer -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#Manufacturer">
+        <rdfs:comment>An organization responsible for designing, manufacturing or placing a medical device on the market.</rdfs:comment>
+        <rdfs:label>Manufacturer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#ProbabilityLevel -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#ProbabilityLevel">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:comment>A classification indicating the likelihood of occurrence of a risk, typically expressed as low, medium, or high.</rdfs:comment>
+        <rdfs:label>Probability Level</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RegulatoryFramework -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#RegulatoryFramework">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:comment>A regulatory classification that determines the legal framework applicable to a medical device, such as MDR or IVDR.</rdfs:comment>
+        <rdfs:label>Regulatory Framework</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#Risk -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#Risk">
+        <rdfs:comment>A potential source of harm associated with the use or malfunction of a medical device.</rdfs:comment>
+        <rdfs:label>Risk</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RiskCategory -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#RiskCategory">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:comment>A high-level classification of risks based on their origin, such as device-related or patient-related risks.</rdfs:comment>
+        <rdfs:label>Category</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RiskClass -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#RiskClass">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <rdfs:comment>A classification indicating the level of regulatory risk associated with a device, typically based on safety and intended use.</rdfs:comment>
+        <rdfs:label>Risk Class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#SeverityLevel -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#SeverityLevel">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:comment>A classification indicating the potential impact or seriousness of a risk, such as minor, serious, or critical.</rdfs:comment>
+        <rdfs:label>Severity Level</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://example.org/mdr-ontology#riskType -->
+
+
+    <owl:Class rdf:about="https://example.org/mdr-ontology#riskType">
+        <rdfs:subClassOf rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <rdfs:comment>A more specific classification of risks within a category, describing the nature of the hazard, such as infection or mechanical failure.</rdfs:comment>
+        <rdfs:label>Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://example.org/mdr-ontology#Closed -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#Closed">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveActionStatus"/>
+        <rdfs:label>Closed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_001">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_001"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-001</deviceId>
+        <deviceName>HeartMate 3 LVAD</deviceName>
+        <intendedPurpose>Ventricular assist device for end-stage heart failure</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)00380740009095</udiDi>
+        <rdfs:seeAlso rdf:resource="https://stanfordhealthcare.org/medical-treatments/l/lvad.html"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_002 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_002">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_001"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-002</deviceId>
+        <deviceName>Micra AV Transcatheter Pacing System</deviceName>
+        <intendedPurpose>Leadless cardiac pacemaker for atrioventricular synchrony</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)00380740009112</udiDi>
+        <rdfs:seeAlso rdf:resource="https://pubmed.ncbi.nlm.nih.gov/38059460/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_003 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_003">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_002"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-003</deviceId>
+        <deviceName>Portico Transcatheter Heart Valve</deviceName>
+        <intendedPurpose>Transcatheter aortic valve replacement (TAVI)</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)00800002222291</udiDi>
+        <rdfs:seeAlso>https://www.structuralheart.abbott/fileadmin/content/For_Patients/Patient_Guides/Portico_TAVI_Patient_Brochure.pdf</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_004 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_004">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_006"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIb"/>
+        <deviceId>DEV-004</deviceId>
+        <deviceName>SYNERGY Stent System</deviceName>
+        <intendedPurpose>Drug-eluting coronary stent</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)08714729002817</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_005 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_005">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_006"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-005</deviceId>
+        <deviceName>ACUITY X4 Quadripolar LV Lead</deviceName>
+        <intendedPurpose>Cardiac resynchronization therapy lead</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)08714729004873</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_006 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_006">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_004"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIb"/>
+        <deviceId>DEV-006</deviceId>
+        <deviceName>STELLAREX Drug-Coated Balloon</deviceName>
+        <intendedPurpose>Peripheral artery drug-coated angioplasty balloon</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)08718998000001</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_007 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_007">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_003"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIa"/>
+        <deviceId>DEV-007</deviceId>
+        <deviceName>ACUSON Sequoia Ultrasound</deviceName>
+        <intendedPurpose>Diagnostic ultrasound imaging system</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)04054839450001</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_008 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_008">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_003"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIa"/>
+        <deviceId>DEV-008</deviceId>
+        <deviceName>MAGNETOM Vida MRI System</deviceName>
+        <intendedPurpose>Magnetic resonance imaging system 3T</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)04054839460002</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_009 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_009">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_010"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-009</deviceId>
+        <deviceName>Persona Knee System</deviceName>
+        <intendedPurpose>Total knee arthroplasty implant system</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)07612345001001</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_010 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_010">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_007"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-010</deviceId>
+        <deviceName>TRITON Total Hip System</deviceName>
+        <intendedPurpose>Ceramic-on-ceramic total hip replacement</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)09876543002002</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_011 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_011">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_011"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-011</deviceId>
+        <deviceName>Iluvien Intravitreal Implant</deviceName>
+        <intendedPurpose>Sustained-release fluocinolone acetonide ocular implant</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)05060247001011</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_012 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_012">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_008"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-012</deviceId>
+        <deviceName>Mammostrat Breast Tissue Marker</deviceName>
+        <intendedPurpose>Implantable breast biopsy marker</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)07654321001012</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_013 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_013">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_012"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIb"/>
+        <deviceId>DEV-013</deviceId>
+        <deviceName>SurgiSeal Mesh</deviceName>
+        <intendedPurpose>Absorbable mesh for surgical reinforcement</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)05432109001013</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_014 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_014">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_004"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIa"/>
+        <deviceId>DEV-014</deviceId>
+        <deviceName>Ellex Integre Pro Laser</deviceName>
+        <intendedPurpose>Ophthalmic laser for retinal photocoagulation</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)09384756001014</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_015 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_015">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_013"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIb"/>
+        <deviceId>DEV-015</deviceId>
+        <deviceName>Hemodialysis Machine 5008S</deviceName>
+        <intendedPurpose>High-volume online hemodiafiltration machine</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)04547597001015</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_016 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_016">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_005"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classC"/>
+        <deviceId>DEV-016</deviceId>
+        <deviceName>cobas e 801 Immunoassay Analyzer</deviceName>
+        <intendedPurpose>Automated immunoassay analyzer for clinical laboratory</intendedPurpose>
+        <regulatoryFramework>IVDR</regulatoryFramework>
+        <udiDi>(01)04015630001016</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_017 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_017">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_005"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classC"/>
+        <deviceId>DEV-017</deviceId>
+        <deviceName>cobas SARS-CoV-2 RT-PCR Test</deviceName>
+        <intendedPurpose>Molecular diagnostic test for SARS-CoV-2 detection</intendedPurpose>
+        <regulatoryFramework>IVDR</regulatoryFramework>
+        <udiDi>(01)04015630001017</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_018 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_018">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_015"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classD"/>
+        <deviceId>DEV-018</deviceId>
+        <deviceName>VIDAS HIV DUO Ultra</deviceName>
+        <intendedPurpose>Combined HIV Ag/Ab detection assay</intendedPurpose>
+        <regulatoryFramework>IVDR</regulatoryFramework>
+        <udiDi>(01)03760027001018</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_019 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_019">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_014"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classC"/>
+        <deviceId>DEV-019</deviceId>
+        <deviceName>PROGENSA PCA3 Assay</deviceName>
+        <intendedPurpose>Urine-based prostate cancer diagnosis assay</intendedPurpose>
+        <regulatoryFramework>IVDR</regulatoryFramework>
+        <udiDi>(01)07000087001019</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_020 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_020">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_002"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classD"/>
+        <deviceId>DEV-020</deviceId>
+        <deviceName>Harmony Prenatal Test</deviceName>
+        <intendedPurpose>Non-invasive prenatal testing (NIPT) for aneuploidies</intendedPurpose>
+        <regulatoryFramework>IVDR</regulatoryFramework>
+        <udiDi>(01)00800002001020</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_021 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_021">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_009"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classC"/>
+        <deviceId>DEV-021</deviceId>
+        <deviceName>OPTIGA Glucose Monitoring System</deviceName>
+        <intendedPurpose>Continuous glucose monitor for patients with diabetes</intendedPurpose>
+        <regulatoryFramework>IVDR</regulatoryFramework>
+        <udiDi>(01)07300000001021</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_022 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_022">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_009"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIa"/>
+        <deviceId>DEV-022</deviceId>
+        <deviceName>BeneVision N1 Patient Monitor</deviceName>
+        <intendedPurpose>Portable patient monitor for vital signs</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)07300000001022</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_023 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_023">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_008"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-023</deviceId>
+        <deviceName>Tivoli II Cochlear Implant</deviceName>
+        <intendedPurpose>Active cochlear implant for sensorineural hearing loss</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)04012099001023</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_024 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_024">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_002"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isReusable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIIb"/>
+        <deviceId>DEV-024</deviceId>
+        <deviceName>Infusion Pump Plum 360</deviceName>
+        <intendedPurpose>Large volume infusion pump with drug library</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)00800002001024</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#DEV_025 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#DEV_025">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Device"/>
+        <hasManufacturer rdf:resource="https://example.org/mdr-ontology#MAN_011"/>
+        <representsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <representsRiskClass rdf:resource="https://example.org/mdr-ontology#classIII"/>
+        <deviceId>DEV-025</deviceId>
+        <deviceName>ValveXpert Transcatheter Mitral Valve</deviceName>
+        <intendedPurpose>Transcatheter mitral valve replacement system</intendedPurpose>
+        <regulatoryFramework>MDR</regulatoryFramework>
+        <udiDi>(01)05391520001025</udiDi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_001">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_001"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#safetyAlert"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Open"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T00:00:00</actionDate>
+        <correctiveActionDescription>Safety alert issued to all implanting centres regarding anticoagulation protocol update for HeartMate 3 to reduce device thrombosis risk. INR target range revised to 2.0–3.0.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">850</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000001</eudamedFscaRef>
+        <fscaId>FSCA-001</fscaId>
+        <scope>All HeartMate 3 LVAD units implanted since 2020</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_002 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_002">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_002"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#recall"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-28T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-31T00:00:00</closureDate>
+        <correctiveActionDescription>Voluntary recall of affected Micra AV lots due to premature battery depletion. Replacement units provided. 97% of affected devices successfully replaced.</correctiveActionDescription>
+        <countriesAffected>EU-wide + UK</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1240</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000002</eudamedFscaRef>
+        <fscaId>FSCA-002</fscaId>
+        <scope>Micra AV lots manufactured between 2022-09 and 2023-03</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_003 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_003">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_003"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#inSituCorrection"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-03-15T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-30T00:00:00</closureDate>
+        <correctiveActionDescription>Enhanced deployment training and updated IFU for Portico valve implantation technique. New implantation checklist mandatory for all TAVI centres.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">320</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000003</eudamedFscaRef>
+        <fscaId>FSCA-003</fscaId>
+        <scope>Portico THV sizes 23mm and 25mm from lots before 2023-11</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_004 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_004">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_005"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#safetyAlert"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Open"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-10T00:00:00</actionDate>
+        <correctiveActionDescription>Safety communication to implanting cardiologists regarding optimal fixation technique for ACUITY X4 lead. Enhanced fluoroscopy verification protocol at implantation.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2100</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000004</eudamedFscaRef>
+        <fscaId>FSCA-004</fscaId>
+        <scope>All ACUITY X4 quadripolar LV leads</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_005 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_005">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_007"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#inSituCorrection"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-20T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-30T00:00:00</closureDate>
+        <correctiveActionDescription>Enhanced surveillance programme: annual DEXA scan and serum particle monitoring for patients with affected tibial inserts. Patients contacted individually.</correctiveActionDescription>
+        <countriesAffected>EU-wide + Switzerland</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">780</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000005</eudamedFscaRef>
+        <fscaId>FSCA-005</fscaId>
+        <scope>Persona Knee tibial inserts with lot numbers PN-2019-* to PN-2021-*</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_006 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_006">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_008"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#recall"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Open"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-30T00:00:00</actionDate>
+        <correctiveActionDescription>Urgent safety recall due to elevated metal ion levels. Revision surgery recommended for patients with serum cobalt &gt;7 ppb or symptomatic ALTR. Replacement implants provided.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">540</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000006</eudamedFscaRef>
+        <fscaId>FSCA-006</fscaId>
+        <scope>TRITON Total Hip ceramic-on-ceramic 28mm heads from lots TH-2020-* and TH-2021-*</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_007 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_007">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_009"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#userNotice"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-25T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-07-31T00:00:00</closureDate>
+        <correctiveActionDescription>Urgent safety notice regarding MRI scanning protocol. Updated MRI-conditional guidelines issued. Mandatory reprogramming required before any MRI scan. Programmer software update v3.2 released.</correctiveActionDescription>
+        <countriesAffected>EU-wide + UK</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4300</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000007</eudamedFscaRef>
+        <fscaId>FSCA-007</fscaId>
+        <scope>All Viva CRT-D devices</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_008 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_008">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_010"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#recall"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-05T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-15T00:00:00</closureDate>
+        <correctiveActionDescription>Software recall: mandatory update to version 2.2.0 resolving FiO2 calibration error. Biomedical engineers visited all affected units within 14 days. Field service documentation required.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">180</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000008</eudamedFscaRef>
+        <fscaId>FSCA-008</fscaId>
+        <scope>ATERA ventilators with software version 2.1.3</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_009 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_009">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_011"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#userNotice"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-20T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-30T00:00:00</closureDate>
+        <correctiveActionDescription>Customer field notification regarding biotin interference in TSH assay. Updated sample preparation protocol and interference screening algorithm released via software update 4.1.2.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">620</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000009</eudamedFscaRef>
+        <fscaId>FSCA-009</fscaId>
+        <scope>All cobas e 801 immunoassay analysers</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_010 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_010">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_012"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#recall"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-30T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-31T00:00:00</closureDate>
+        <correctiveActionDescription>Immediate quarantine and replacement of affected reagent lots. Reflex testing protocol issued. All positive results from affected lots to be re-confirmed. New primer design covering BA.2.86 released.</correctiveActionDescription>
+        <countriesAffected>EU-wide + Norway + Iceland</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12500</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000010</eudamedFscaRef>
+        <fscaId>FSCA-010</fscaId>
+        <scope>cobas SARS-CoV-2 RT-PCR reagent lot numbers CV-2024-0312 to CV-2024-0318</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_011 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_011">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_014"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#inSituCorrection"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Open"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-01T00:00:00</actionDate>
+        <correctiveActionDescription>Enhanced calibration protocol issued. Firmware update v1.8.5 mandatory improving temperature compensation algorithm. Patients instructed to perform confirmatory finger-stick at glucose readings &lt;4.5 or &gt;13.9 mmol/L.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3200</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000011</eudamedFscaRef>
+        <fscaId>FSCA-011</fscaId>
+        <scope>All OPTIGA CGM sensors from manufacturing site GE-SGP-2</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_012 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_012">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_015"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#recall"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-20T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-10-31T00:00:00</closureDate>
+        <correctiveActionDescription>Urgent recall and remote software update. Drug library version 4.3.0 deployed correcting decimal point error. All units verified by biomedical engineering before return to clinical use.</correctiveActionDescription>
+        <countriesAffected>EU-wide + UK + Norway</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2870</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000012</eudamedFscaRef>
+        <fscaId>FSCA-012</fscaId>
+        <scope>Plum 360 infusion pumps with drug library version 4.2.1</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_013 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_013">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_016"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#safetyAlert"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Open"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-10T00:00:00</actionDate>
+        <correctiveActionDescription>Safety communication regarding outflow graft kinking risk. Updated surgical technique for graft routing issued. Mandatory follow-up CT at 6 months for patients with affected lot numbers.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">420</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000013</eudamedFscaRef>
+        <fscaId>FSCA-013</fscaId>
+        <scope>All HeartMate 3 LVAD units with outflow graft lot OG-2022-*</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_014 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_014">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_017"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#userNotice"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-25T00:00:00</actionDate>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-31T00:00:00</closureDate>
+        <correctiveActionDescription>Updated IFU regarding post-operative infection prophylaxis protocol. Extended topical antibiotic course (14 days) mandatory post-insertion. Healthcare professionals notified via direct mail and implanting centre visits.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1100</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000014</eudamedFscaRef>
+        <fscaId>FSCA-014</fscaId>
+        <scope>All Iluvien intravitreal implants</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#FSCA_015 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#FSCA_015">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveAction"/>
+        <adddressesIncident rdf:resource="https://example.org/mdr-ontology#INC_018"/>
+        <representsActionType rdf:resource="https://example.org/mdr-ontology#inSituCorrection"/>
+        <representsStatus rdf:resource="https://example.org/mdr-ontology#Open"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-10-01T00:00:00</actionDate>
+        <correctiveActionDescription>Security patch 3.0.1 mandatory deployment disabling unrestricted web interface access. Network segmentation guidance issued to hospital IT departments. Penetration test report provided to competent authorities.</correctiveActionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">890</devicesAffected>
+        <eudamedFscaRef>EU-FSCA-2024-000015</eudamedFscaRef>
+        <fscaId>FSCA-015</fscaId>
+        <scope>All 5008S hemodialysis machines with network connectivity module v2.x</scope>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_001">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_003"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_001"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_001"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-10T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000001</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-08T00:00:00</eventDate>
+        <incidentDescription>Patient implanted with HeartMate 3 LVAD developed ischemic stroke 6 months post-implant. Device thrombus confirmed by echocardiography.</incidentDescription>
+        <incidentId>INC-001</incidentId>
+        <outcome>Serious patient injury - embolic stroke</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-15T00:00:00</reportDate>
+        <reportedCountry>Germany</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_002 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_002">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_009"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_002"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_001"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-01T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000002</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-01-29T00:00:00</eventDate>
+        <incidentDescription>Micra AV pacemaker reached elective replacement indicator 14 months earlier than expected longevity specification.</incidentDescription>
+        <incidentId>INC-002</incidentId>
+        <outcome>Device malfunction - premature battery depletion</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72</patientAge>
+        <patientSex>Female</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-03T00:00:00</reportDate>
+        <reportedCountry>France</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_003 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_003">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_005"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_003"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_002"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-18T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000003</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-15T00:00:00</eventDate>
+        <incidentDescription>Portico valve showed paravalvular leak grade III due to partial migration 2 weeks post-TAVI procedure.</incidentDescription>
+        <incidentId>INC-003</incidentId>
+        <outcome>Surgical intervention required - valve re-anchoring</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-20T00:00:00</reportDate>
+        <reportedCountry>Italy</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_004 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_004">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_002"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_004"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_006"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-03-03T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000004</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-02-28T00:00:00</eventDate>
+        <incidentDescription>SYNERGY stent fracture detected on angiography 18 months post-implant causing in-stent restenosis.</incidentDescription>
+        <incidentId>INC-004</incidentId>
+        <outcome>Device malfunction - stent fracture</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</patientAge>
+        <patientSex>Female</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-03-05T00:00:00</reportDate>
+        <reportedCountry>Spain</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_005 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_005">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_006"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_005"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_006"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-03-16T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000005</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-03-12T00:00:00</eventDate>
+        <incidentDescription>ACUITY X4 lead dislodgement to right ventricle requiring fluoroscopy-guided repositioning.</incidentDescription>
+        <incidentId>INC-005</incidentId>
+        <outcome>Surgical intervention required - lead extraction</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-03-18T00:00:00</reportDate>
+        <reportedCountry>Netherlands</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_006 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_006">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_007"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_007"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_003"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-01T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000006</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-01T00:00:00</eventDate>
+        <incidentDescription>ACUSON Sequoia ultrasound system froze mid-examination. Emergency shutdown required; patient examination incomplete.</incidentDescription>
+        <incidentId>INC-006</incidentId>
+        <outcome>Device malfunction - complete system failure</outcome>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-02T00:00:00</reportDate>
+        <reportedCountry>Belgium</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_007 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_007">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_008"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_009"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_010"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-10T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000007</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-03-01T00:00:00</eventDate>
+        <incidentDescription>Persona knee tibial insert showing accelerated polyethylene wear with metallosis confirmed at 3-year revision surgery.</incidentDescription>
+        <incidentId>INC-007</incidentId>
+        <outcome>Patient harm - adverse tissue reaction</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-14T00:00:00</reportDate>
+        <reportedCountry>Sweden</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_008 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_008">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_001"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_010"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_007"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-25T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000008</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-20T00:00:00</eventDate>
+        <incidentDescription>TRITON hip patient presented with elevated serum cobalt (18 ppb). Adverse local tissue reaction (ALTR) confirmed by MRI.</incidentDescription>
+        <incidentId>INC-008</incidentId>
+        <outcome>Patient harm - cobalt toxicity</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</patientAge>
+        <patientSex>Female</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-04-28T00:00:00</reportDate>
+        <reportedCountry>Denmark</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_009 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_009">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_004"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_012"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_008"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-04T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000009</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-03T00:00:00</eventDate>
+        <incidentDescription>Viva CRT-D delivered inappropriate ICD therapy during MRI scan despite MRI-conditional programming. Patient experienced pain and syncope.</incidentDescription>
+        <incidentId>INC-009</incidentId>
+        <outcome>Inappropriate shock delivery</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-06T00:00:00</reportDate>
+        <reportedCountry>Poland</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_010 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_010">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_011"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_013"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_012"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-19T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000010</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-19T00:00:00</eventDate>
+        <incidentDescription>ATERA ventilator software version 2.1.3 delivered FiO2 6% lower than set value for patients in ARDS protocol. 3 patients affected.</incidentDescription>
+        <incidentId>INC-010</incidentId>
+        <outcome>Device malfunction - incorrect FiO2 delivery</outcome>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-20T00:00:00</reportDate>
+        <reportedCountry>Germany</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_011 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_011">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_012"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_016"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_005"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-01T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000011</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-28T00:00:00</eventDate>
+        <incidentDescription>cobas e 801 thyroid-stimulating hormone (TSH) assay reported false positive results (&gt;10 mIU/L) in 12 euthyroid patients due to biotin interference.</incidentDescription>
+        <incidentId>INC-011</incidentId>
+        <outcome>Diagnostic error - false positive TSH results</outcome>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-03T00:00:00</reportDate>
+        <reportedCountry>France</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_012 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_012">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_017"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_015"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-13T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000012</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-10T00:00:00</eventDate>
+        <incidentDescription>cobas SARS-CoV-2 assay failed to detect Omicron BA.2.86 subvariant in 7 samples confirmed positive by sequencing. Lot-specific issue.</incidentDescription>
+        <incidentId>INC-012</incidentId>
+        <outcome>Diagnostic error - false negative SARS-CoV-2</outcome>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-15T00:00:00</reportDate>
+        <reportedCountry>Spain</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_013 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_013">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_014"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_018"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_009"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-29T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000013</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-25T00:00:00</eventDate>
+        <incidentDescription>VIDAS HIV DUO Ultra failed to detect HIV-1 group O infection in seroconversion panel. Patient missed early treatment window.</incidentDescription>
+        <incidentId>INC-013</incidentId>
+        <outcome>Diagnostic error - false negative HIV</outcome>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-07-01T00:00:00</reportDate>
+        <reportedCountry>Germany</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_014 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_014">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_015"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_021"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_002"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-07-15T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000014</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-07-10T00:00:00</eventDate>
+        <incidentDescription>OPTIGA CGM sensor reported glucose 3.8 mmol/L while laboratory reference showed 14.2 mmol/L. Patient delayed insulin administration.</incidentDescription>
+        <incidentId>INC-014</incidentId>
+        <outcome>Patient harm - hyperglycaemic event</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</patientAge>
+        <patientSex>Female</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-07-18T00:00:00</reportDate>
+        <reportedCountry>Nederlands</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_015 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_015">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_010"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_024"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_001"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-04T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000015</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-04T00:00:00</eventDate>
+        <incidentDescription>Plum 360 infusion pump delivered 10x heparin dose due to software decimal point error in drug library version 4.2.1.</incidentDescription>
+        <incidentId>INC-015</incidentId>
+        <outcome>Patient harm - drug overdose</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">81</patientAge>
+        <patientSex>Female</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-05T00:00:00</reportDate>
+        <reportedCountry>Italy</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_016 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_016">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_016"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_001"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_011"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-18T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000016</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-15T00:00:00</eventDate>
+        <incidentDescription>HeartMate 3 patient developed severe haemolysis (LDH &gt;2000 U/L) associated with outflow graft kinking confirmed by CT.</incidentDescription>
+        <incidentId>INC-016</incidentId>
+        <outcome>Patient harm - haemolytic anaemia</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-20T00:00:00</reportDate>
+        <reportedCountry>United Kingdom</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_017 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_017">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_017"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_011"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_013"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-30T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000017</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-08-25T00:00:00</eventDate>
+        <incidentDescription>Iluvien implant required surgical removal due to device-related endophthalmitis confirmed by vitreous culture.</incidentDescription>
+        <incidentId>INC-017</incidentId>
+        <outcome>Surgical intervention - implant removal</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</patientAge>
+        <patientSex>Female</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-02T00:00:00</reportDate>
+        <reportedCountry>France</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_018 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_018">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_018"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_015"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_008"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-14T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000018</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-12T00:00:00</eventDate>
+        <incidentDescription>5008S hemodialysis machine web interface exposed to hospital internal network. Unauthorised session accessed alarm configuration.</incidentDescription>
+        <incidentId>INC-018</incidentId>
+        <outcome>Cybersecurity incident - unauthorised access</outcome>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-15T00:00:00</reportDate>
+        <reportedCountry>Germany</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_019 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_019">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_019"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_023"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_008"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#nearMiss"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-30T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000019</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-09-28T00:00:00</eventDate>
+        <incidentDescription>Tivoli II cochlear implant failed to respond to initial activation programming. Sound processor replacement resolved the issue.</incidentDescription>
+        <incidentId>INC-019</incidentId>
+        <outcome>Near-miss - device not activated post-surgery</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-10-01T00:00:00</reportDate>
+        <reportedCountry>Sweden</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#INC_020 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#INC_020">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Incident"/>
+        <hasRisk rdf:resource="https://example.org/mdr-ontology#RSK_020"/>
+        <involvesDevice rdf:resource="https://example.org/mdr-ontology#DEV_008"/>
+        <reportedBy rdf:resource="https://example.org/mdr-ontology#MAN_003"/>
+        <representsIncidentType rdf:resource="https://example.org/mdr-ontology#serious"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-10-12T00:00:00</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000020</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-10-10T00:00:00</eventDate>
+        <incidentDescription>MAGNETOM Vida MRI caused localised skin burn (1st degree) at anterior electrode lead in patient with DBS system not declared prior to scan.</incidentDescription>
+        <incidentId>INC-020</incidentId>
+        <outcome>Patient harm - SAR heating injury</outcome>
+        <patientAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</patientAge>
+        <patientSex>Female</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-10-14T00:00:00</reportDate>
+        <reportedCountry>Belgium</reportedCountry>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#IVDR -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#IVDR">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RegulatoryFramework"/>
+        <rdfs:label>IVDR</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_001">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>IE/2017/001234</authorizationNumber>
+        <competentAuthority>Health Products Regulatory Authority (HPRA)</competentAuthority>
+        <contactEmail>regulatory@medtronic.com</contactEmail>
+        <country>Ireland</country>
+        <eudamedSRN>SRN-IE-MED-0001</eudamedSRN>
+        <manufacturerId>MAN-001</manufacturerId>
+        <manufacturerName>Medtronic plc</manufacturerName>
+        <rdfs:seeAlso>https://www.medtronic.com</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_002 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_002">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>DE/2017/005678</authorizationNumber>
+        <competentAuthority>Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM)</competentAuthority>
+        <contactEmail>regulatory@abbott.com</contactEmail>
+        <country>Germany</country>
+        <eudamedSRN>SRN-DE-MED-0002</eudamedSRN>
+        <manufacturerId>MAN-002</manufacturerId>
+        <manufacturerName>Abbott Medical Devices</manufacturerName>
+        <rdfs:seeAlso>https://www.abbott.com</rdfs:seeAlso>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_003 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_003">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>DE/2017/009012</authorizationNumber>
+        <competentAuthority>Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM)</competentAuthority>
+        <contactEmail>regulatory@siemens-healthineers.com</contactEmail>
+        <country>Germany</country>
+        <eudamedSRN>SRN-DE-MED-0003</eudamedSRN>
+        <manufacturerId>MAN-003</manufacturerId>
+        <manufacturerName>Siemens Healthineers AG</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_004 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_004">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>NL/2017/003456</authorizationNumber>
+        <competentAuthority>Rijksinstituut voor Volksgezondheid en Milieu (RIVM)</competentAuthority>
+        <contactEmail>regulatory@philips.com</contactEmail>
+        <country>Netherlands</country>
+        <eudamedSRN>SRN-NL-MED-0004</eudamedSRN>
+        <manufacturerId>MAN-004</manufacturerId>
+        <manufacturerName>Philips Medical Systems</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_005 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_005">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>DE/2017/007890</authorizationNumber>
+        <competentAuthority>Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM)</competentAuthority>
+        <contactEmail>regulatory@roche.com</contactEmail>
+        <country>Germany</country>
+        <eudamedSRN>SRN-DE-MED-0005</eudamedSRN>
+        <manufacturerId>MAN-005</manufacturerId>
+        <manufacturerName>Roche Diagnostics GmbH</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_006 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_006">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>IE/2017/002345</authorizationNumber>
+        <competentAuthority>Health Products Regulatory Authority (HPRA)</competentAuthority>
+        <contactEmail>regulatory@bsci.com</contactEmail>
+        <country>Ireland</country>
+        <eudamedSRN>SRN-IE-MED-0006</eudamedSRN>
+        <manufacturerId>MAN-006</manufacturerId>
+        <manufacturerName>Boston Scientific Corporation</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_007 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_007">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>NL/2017/006789</authorizationNumber>
+        <competentAuthority>Rijksinstituut voor Volksgezondheid en Milieu (RIVM)</competentAuthority>
+        <contactEmail>regulatory@stryker.com</contactEmail>
+        <country>Nederlands</country>
+        <eudamedSRN>SRN-NL-MED-0007</eudamedSRN>
+        <manufacturerId>MAN-007</manufacturerId>
+        <manufacturerName>Stryker Corporation</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_008 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_008">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>DE/2017/004567</authorizationNumber>
+        <competentAuthority>Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM)</competentAuthority>
+        <contactEmail>regulatory@biotronik.com</contactEmail>
+        <country>Germany</country>
+        <eudamedSRN>SRN-DE-MED-0008</eudamedSRN>
+        <manufacturerId>MAN-008</manufacturerId>
+        <manufacturerName>Biotronik SE &amp; Co. KG</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_009 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_009">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>SE/2017/008901</authorizationNumber>
+        <competentAuthority>Läkemedelsverket (MPA)</competentAuthority>
+        <contactEmail>regulatory@gehealthcare.com</contactEmail>
+        <country>Sweden</country>
+        <eudamedSRN>SRN-SE-MED-0009</eudamedSRN>
+        <manufacturerId>MAN-009</manufacturerId>
+        <manufacturerName>GE HealthCare Technologies</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_010 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_010">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>CH/2017/001122</authorizationNumber>
+        <competentAuthority>Swissmedic</competentAuthority>
+        <contactEmail>regulatory@zimmerbiomet.com</contactEmail>
+        <country>Switzerland</country>
+        <eudamedSRN>SRN-CH-MED-0010</eudamedSRN>
+        <manufacturerId>MAN-010</manufacturerId>
+        <manufacturerName>Zimmer Biomet Holdings</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_011 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_011">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>UK/2017/003344</authorizationNumber>
+        <competentAuthority>Medicines and Healthcare products Regulatory Agency (MHRA)</competentAuthority>
+        <contactEmail>regulatory@livanova.com</contactEmail>
+        <country>United Kingdom</country>
+        <eudamedSRN>SRN-UK-MED-0011</eudamedSRN>
+        <manufacturerId>MAN-011</manufacturerId>
+        <manufacturerName>LivaNova PLC</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_012 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_012">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>DE/2017/005566</authorizationNumber>
+        <competentAuthority>Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM)</competentAuthority>
+        <contactEmail>regulatory@draeger.com</contactEmail>
+        <country>Germany</country>
+        <eudamedSRN>SRN-DE-MED-0012</eudamedSRN>
+        <manufacturerId>MAN-012</manufacturerId>
+        <manufacturerName>Drägerwerk AG &amp; Co. KGaA</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_013 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_013">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>FR/2017/007788</authorizationNumber>
+        <competentAuthority>Agence nationale de sécurité du médicament (ANSM)</competentAuthority>
+        <contactEmail>regulatory@nipro.com</contactEmail>
+        <country>France</country>
+        <eudamedSRN>SRN-FR-MED-0013</eudamedSRN>
+        <manufacturerId>MAN-013</manufacturerId>
+        <manufacturerName>Nipro Corporation</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_014 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_014">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>BE/2017/009900</authorizationNumber>
+        <competentAuthority>Agence fédérale des médicaments et des produits de santé (AFMPS)</competentAuthority>
+        <contactEmail>regulatory@hologic.com</contactEmail>
+        <country>Belgium</country>
+        <eudamedSRN>SRN-BE-MED-0014</eudamedSRN>
+        <manufacturerId>MAN-014</manufacturerId>
+        <manufacturerName>Hologic Inc.</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MAN_015 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MAN_015">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Manufacturer"/>
+        <authorizationNumber>FR/2017/002211</authorizationNumber>
+        <competentAuthority>Agence nationale de sécurité du médicament (ANSM)</competentAuthority>
+        <contactEmail>regulatory@biomerieux.com</contactEmail>
+        <country>France</country>
+        <eudamedSRN>SRN-FR-MED-0015</eudamedSRN>
+        <manufacturerId>MAN-015</manufacturerId>
+        <manufacturerName>bioMérieux SA</manufacturerName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#MDR -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#MDR">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RegulatoryFramework"/>
+        <rdfs:label>MDR</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#Open -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#Open">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#CorrectiveActionStatus"/>
+        <rdfs:label>Open</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_001">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#deviceFailure"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#malfunctionRisk"/>
+        <imdrfCode>A0101</imdrfCode>
+        <riskDescription>Complete loss of electrical function leading to device shutdown</riskDescription>
+        <riskId>RSK-001</riskId>
+        <riskName>Device failure - electrical</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_002 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_002">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#medium"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#deviceFailure"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#malfunctionRisk"/>
+        <imdrfCode>A0102</imdrfCode>
+        <riskDescription>Structural failure of mechanical components under physiological load</riskDescription>
+        <riskId>RSK-002</riskId>
+        <riskName>Device failure - mechanical</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_003 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_003">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#patientHarm"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#injuryRisk"/>
+        <imdrfCode>A0201</imdrfCode>
+        <riskDescription>Thrombus formation on device surface causing embolic events</riskDescription>
+        <riskId>RSK-003</riskId>
+        <riskName>Thrombosis - device-related</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_004 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_004">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#patientHarm"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#injuryRisk"/>
+        <imdrfCode>A0202</imdrfCode>
+        <riskDescription>Mechanical destruction of red blood cells by pump mechanism</riskDescription>
+        <riskId>RSK-004</riskId>
+        <riskName>Hemolysis - pump-induced</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_005 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_005">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#devicePerformance"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#malfunctionRisk"/>
+        <imdrfCode>A0301</imdrfCode>
+        <riskDescription>Unintended displacement of implant from intended anatomical position</riskDescription>
+        <riskId>RSK-005</riskId>
+        <riskName>Device migration - implant</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_006 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_006">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#medium"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#devicePerformance"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#malfunctionRisk"/>
+        <imdrfCode>A0302</imdrfCode>
+        <riskDescription>Cardiac lead displacement requiring repositioning or replacement</riskDescription>
+        <riskId>RSK-006</riskId>
+        <riskName>Lead dislodgement</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_007 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_007">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#medium"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#patientHarm"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#infectionRisk"/>
+        <imdrfCode>A0401</imdrfCode>
+        <riskDescription>Device-related infection at implantation site or systemic sepsis</riskDescription>
+        <riskId>RSK-007</riskId>
+        <riskName>Infection - device-related</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_008 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_008">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#high"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityModerate"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#devicePerformance"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#infectionRisk"/>
+        <imdrfCode>A0402</imdrfCode>
+        <riskDescription>Bacterial biofilm accumulation on implant surface resistant to antibiotics</riskDescription>
+        <riskId>RSK-008</riskId>
+        <riskName>Biofilm formation</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_009 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_009">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#deviceFailure"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#malfunctionRisk"/>
+        <imdrfCode>A0501</imdrfCode>
+        <riskDescription>Battery end-of-life earlier than specified, risking therapy interruption</riskDescription>
+        <riskId>RSK-009</riskId>
+        <riskName>Battery depletion - premature</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_010 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_010">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#deviceFailure"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#softwareRisk"/>
+        <imdrfCode>A0502</imdrfCode>
+        <riskDescription>Software bug causing incorrect dosing, alarming, or therapy delivery</riskDescription>
+        <riskId>RSK-010</riskId>
+        <riskName>Software malfunction</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_011 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_011">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#patientHarm"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#radiationRisk"/>
+        <imdrfCode>A0601</imdrfCode>
+        <riskDescription>Unintended ionising radiation exposure exceeding therapeutic dose</riskDescription>
+        <riskId>RSK-011</riskId>
+        <riskName>Radiation overdose</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_012 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_012">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#high"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityModerate"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#patientHarm"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#interferenceRisk"/>
+        <imdrfCode>A0701</imdrfCode>
+        <riskDescription>Metallic implant causing MRI image artifacts compromising diagnostics</riskDescription>
+        <riskId>RSK-012</riskId>
+        <riskName>Metallic artifact - MRI</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_013 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_013">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#devicePerformance"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#interferenceRisk"/>
+        <imdrfCode>B0302</imdrfCode>
+        <riskDescription>External EMI affecting pacemaker/ICD sensing and pacing functions</riskDescription>
+        <riskId>RSK-013</riskId>
+        <riskName>Electromagnetic interference</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_014 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_014">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#medium"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#productQuality"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#contaminationRisk"/>
+        <imdrfCode>B0101</imdrfCode>
+        <riskDescription>IVD test returns positive result in absence of target condition</riskDescription>
+        <riskId>RSK-014</riskId>
+        <riskName>False positive result</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_015 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_015">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#patientHarm"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#diagnosticRisk"/>
+        <imdrfCode>B0102</imdrfCode>
+        <riskDescription>IVD test fails to detect target condition in affected individual</riskDescription>
+        <riskId>RSK-015</riskId>
+        <riskName>False negative result</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_016 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_016">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#medium"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#diagnosticError"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#diagnosticRisk"/>
+        <imdrfCode>B0201</imdrfCode>
+        <riskDescription>Reagent reacts with non-target analyte producing incorrect result</riskDescription>
+        <riskId>RSK-016</riskId>
+        <riskName>Cross-reactivity</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_017 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_017">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#diagnosticError"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#diagnosticRisk"/>
+        <imdrfCode>B0301</imdrfCode>
+        <riskDescription>Reagent lot contamination leading to systematic diagnostic errors</riskDescription>
+        <riskId>RSK-017</riskId>
+        <riskName>Contamination - reagent</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_018 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_018">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isActive"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severityCritical"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#deviceSafety"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#cyberSecurityRisk"/>
+        <imdrfCode>B0401</imdrfCode>
+        <riskDescription>Exploitable software vulnerability enabling unauthorized device access</riskDescription>
+        <riskId>RSK-018</riskId>
+        <riskName>Cybersecurity vulnerability</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_019 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_019">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#medium"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#devicePerformance"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#materialRisk"/>
+        <imdrfCode>C0101</imdrfCode>
+        <riskDescription>Particulate debris from bearing surfaces causing adverse tissue reaction</riskDescription>
+        <riskId>RSK-019</riskId>
+        <riskName>Wear debris - joint implant</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#RSK_020 -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#RSK_020">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#Risk"/>
+        <affectsDeviceType rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+        <hasRiskProbability rdf:resource="https://example.org/mdr-ontology#low"/>
+        <hasSeverityLevel rdf:resource="https://example.org/mdr-ontology#severitySerious"/>
+        <representsRiskCategory rdf:resource="https://example.org/mdr-ontology#patientHarm"/>
+        <representsRiskType rdf:resource="https://example.org/mdr-ontology#materialRisk"/>
+        <imdrfCode>C0201</imdrfCode>
+        <riskDescription>Metallic ion release from corrosion causing local or systemic toxicity</riskDescription>
+        <riskId>RSK-020</riskId>
+        <riskName>Corrosion - metallic implant</riskName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#classC -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#classC">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskClass"/>
+        <rdfs:label>Class C</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#classD -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#classD">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskClass"/>
+        <rdfs:label>Class D</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#classIII -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#classIII">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskClass"/>
+        <rdfs:label>Class III</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#classIIa -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#classIIa">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskClass"/>
+        <rdfs:label>Class IIa</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#classIIb -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#classIIb">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskClass"/>
+        <rdfs:label>Class IIb</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#contaminationRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#contaminationRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Contamination Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#cyberSecurityRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#cyberSecurityRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Cybersecurity Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#deviceFailure -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#deviceFailure">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskCategory"/>
+        <rdfs:label>Device Failure</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#devicePerformance -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#devicePerformance">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskCategory"/>
+        <rdfs:label>Device Performance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#deviceSafety -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#deviceSafety">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskCategory"/>
+        <rdfs:label>Device Safety</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#diagnosticError -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#diagnosticError">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskCategory"/>
+        <rdfs:label>Diagnostic Error</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#diagnosticRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#diagnosticRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Diagnostic Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#high -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#high">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#ProbabilityLevel"/>
+        <probabilityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</probabilityValue>
+        <rdfs:label>Probability High</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#inSituCorrection -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#inSituCorrection">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#ActionType"/>
+        <rdfs:label>In-Situ Correction</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#infectionRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#infectionRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Infection Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#injuryRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#injuryRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Injury Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#interferenceRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#interferenceRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Interference Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#isActive -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#isActive">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#DeviceType"/>
+        <rdfs:label>Active</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#isImplantable -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#isImplantable">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#DeviceType"/>
+        <rdfs:label>Implantable</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#isIvd -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#isIvd">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#DeviceType"/>
+        <rdfs:label>InVitro Diagnostic</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#isReusable -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#isReusable">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#DeviceType"/>
+        <rdfs:label>Reusable</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#low -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#low">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#ProbabilityLevel"/>
+        <probabilityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</probabilityValue>
+        <rdfs:label>Probability Low</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#malfunctionRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#malfunctionRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Malfuction Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#materialRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#materialRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Material Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#medium -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#medium">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#ProbabilityLevel"/>
+        <probabilityValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</probabilityValue>
+        <rdfs:label>Probability Medium</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#nearMiss -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#nearMiss">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#IncidentType"/>
+        <rdfs:label>Near Miss Incident</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#patientHarm -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#patientHarm">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskCategory"/>
+        <rdfs:label>Patient Harm</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#productQuality -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#productQuality">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#RiskCategory"/>
+        <rdfs:label>Product Quality</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#radiationRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#radiationRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Radiation Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#recall -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#recall">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#ActionType"/>
+        <rdfs:label>Recall</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#safetyAlert -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#safetyAlert">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#ActionType"/>
+        <rdfs:label>Safety Alert</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#serious -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#serious">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#IncidentType"/>
+        <rdfs:label>Serious Incident</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#severityCritical -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#severityCritical">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#SeverityLevel"/>
+        <levelValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5</levelValue>
+        <rdfs:label>Severity Critical</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#severityLow -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#severityLow">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#SeverityLevel"/>
+        <levelValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2</levelValue>
+        <rdfs:label>Severity Low</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#severityModerate -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#severityModerate">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#SeverityLevel"/>
+        <levelValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3</levelValue>
+        <rdfs:label>Severity Moderate</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#severitySerious -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#severitySerious">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#SeverityLevel"/>
+        <levelValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4</levelValue>
+        <rdfs:label>Severity Serious</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#severityVeryLow -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#severityVeryLow">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#SeverityLevel"/>
+        <levelValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</levelValue>
+        <rdfs:label>Severity Very Low</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#softwareRisk -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#softwareRisk">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#riskType"/>
+        <rdfs:label>Software Risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://example.org/mdr-ontology#userNotice -->
+
+
+    <owl:NamedIndividual rdf:about="https://example.org/mdr-ontology#userNotice">
+        <rdf:type rdf:resource="https://example.org/mdr-ontology#ActionType"/>
+        <rdfs:label>User Notice</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#d">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If a Device instance is implantable then its device type is ImplantableDevice</rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="https://example.org/mdr-ontology#Device"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://example.org/mdr-ontology#representsDeviceType"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                <swrl:argument2 rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="https://example.org/mdr-ontology#representsDeviceType"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                        <swrl:argument2 rdf:resource="https://example.org/mdr-ontology#isActive"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://example.org/mdr-ontology#deviceType"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                        <swrl:argument2>ImplantableDevice</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If a Device is of type IVD its regulatory framework is &quot;IVDR&quot;</rdfs:comment>
+        <rdfs:label>S3</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="https://example.org/mdr-ontology#Device"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://example.org/mdr-ontology#representsDeviceType"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                <swrl:argument2 rdf:resource="https://example.org/mdr-ontology#isIvd"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://example.org/mdr-ontology#regulatoryFramework"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                        <swrl:argument2>IVDR</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment>If a Device instance is implantable and active, then its device type is ImplantableActiveDevice</rdfs:comment>
+        <rdfs:label>S2</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="https://example.org/mdr-ontology#Device"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://example.org/mdr-ontology#representsDeviceType"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                <swrl:argument2 rdf:resource="https://example.org/mdr-ontology#isImplantable"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="https://example.org/mdr-ontology#representsDeviceType"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                        <swrl:argument2 rdf:resource="https://example.org/mdr-ontology#isActive"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://example.org/mdr-ontology#deviceType"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                        <swrl:argument2>ImplantableActiveDevice</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+
